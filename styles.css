@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 * {
-    color: black;
+    color: olive;
     font-family: "Lato", sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 span {
@@ -24,6 +28,29 @@ p {
 
 a {
     text-decoration: none;
+    position: relative;
+}
+
+.link__hover-effect::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 0;
+    bottom: -3px;
+    right: 0;
+    transition: all 300ms ease;
+}
+
+.link__hover-effect--white::after {
+    background-color: white;
+}
+.link__hover-effect--black::after {
+    background-color: black;
+}
+
+.link__hover-effect:hover:after {
+    width: 100%;
+    left: 0;
 }
 
 li {
@@ -45,6 +72,7 @@ li {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 12px;
 }
 
 .text--olive {
@@ -73,6 +101,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 12px;
 }
 
 .nav__link--list {
@@ -198,6 +227,7 @@ nav {
 
 .language__list {
     display: flex;
+    justify-content: center;
     width: 100%;
     flex-wrap: wrap;
 }
@@ -308,6 +338,14 @@ footer {
     background-color: #242424;
 }
 
+.footer__social--list {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 28px;
+}
+
 .footer__row {
     display: flex;
     flex-direction: column;
@@ -324,4 +362,58 @@ footer {
 .footer__social--link,
 .footer__copyright {
     color: #ffff;
+}
+
+.footer__logo--popper {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    font-weight: 700;
+    opacity: 0;
+    transition: all 300ms ease;
+}
+
+.footer__anchor {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer__anchor:hover .footer__logo--popper {
+    transform: translateX(60px);
+    opacity: 1;
+}
+
+/* small phones, tablets, large smartphones */
+@media (max-width: 768px) {
+    nav {
+        height: 68px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .about-me__info--para {
+        font-size: 18px;
+    }
+
+    .language {
+        width: calc(100% / 2);
+    }
+
+    .project__description--para {
+        font-size: 18px;
+    }
+
+    .project__description {
+        left: 30px;
+        padding-right: 30px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .nav__link:not(:last-child) {
+        display: none;
+    }
 }
