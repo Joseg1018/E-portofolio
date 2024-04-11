@@ -397,6 +397,11 @@ nav {
     color: #ffff;
 }
 
+.project__description--links {
+    display: flex;
+    justify-content: center;
+}
+
 /* footer */
 
 footer {
@@ -489,10 +494,11 @@ footer {
         width: 100%;
     }
 
-    .project__description--links {
+    /*.project__description--links {
         display: flex;
         justify-content: center;
     }
+    */
 
     .project__description--title {
         font-size: 12px;
